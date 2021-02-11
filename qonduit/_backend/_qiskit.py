@@ -60,3 +60,13 @@ try:
         return interactive(lambda sv: display(plot_state_qsphere(sv)), sv=fixed(state))
 except ImportError:
     pass
+
+
+try:
+    from ibm_quantum_widgets import CircuitComposer
+    
+    def qonduit_visualization_circuit_design(circuit):
+        return CircuitComposer(circuit=circuit)
+    
+except ImportError:
+    print("IMPORT ERROR")
