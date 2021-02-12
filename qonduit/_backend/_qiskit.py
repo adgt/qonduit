@@ -69,4 +69,4 @@ try:
         return CircuitComposer(circuit=circuit)
     
 except ImportError:
-    print("IMPORT ERROR")
+    pass
