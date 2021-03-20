@@ -20,7 +20,7 @@ Tested with JupyterLab 2, so may not work in JupyterLab 3 just yet.
 
 To install use pip:
 
-    $ pip install pulsemaker
+    $ pip install qonduit
 
 For a development installation (requires npm),
 
