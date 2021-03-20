@@ -1,4 +1,6 @@
 # Qonduit
+[![pypi](https://img.shields.io/pypi/v/qonduit.svg)](https://pypi.org/project/qonduit/)
+
 An open-source Python widget library and dashboard workflow for quantum computing that utilizes the best of what’s available. Our hope is that this package can go wherever you or your projects go, enabling you to:
 - Learn more about quantum computing
 - Work with circuits and/or pulse-level control
@@ -14,7 +16,11 @@ Currently, there is support for Qiskit and Cirq. We hope to support more quantum
 ## Getting Started
 ### Installation
 
-Installation currently requires a development installation (PyPI packages coming soon). Tested with JupyterLab 2, so may not work in JupyterLab 3 just yet.
+Tested with JupyterLab 2, so may not work in JupyterLab 3 just yet.
+
+To install use pip:
+
+    $ pip install qonduit
 
 For a development installation (requires npm),
 
@@ -32,7 +38,7 @@ Additionally, you need Qiskit or Cirq installed and the following if you wish to
 Take a look at [example.ipynb](example.ipynb) for a simple example.
 
 Otherwise, you can simply run (assumes Qiskit is installed):
-```
+```python
 from qonduit.dashboard import Default
 from qiskit import QuantumCircuit
 Default(QuantumCircuit(2))
