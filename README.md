@@ -16,13 +16,11 @@ Currently, there is support for Qiskit and Cirq. We hope to support more quantum
 ## Getting Started
 ### Installation
 
-Tested with JupyterLab 2, so may not work in JupyterLab 3 just yet.
-
-To install use pip:
+To install use pip (JupyterLab 3 recommended):
 
     $ pip install qonduit
 
-For a development installation (requires npm),
+For a development installation,
 
     $ git clone https://github.com/adgt/qonduit.git
     $ cd pyQuirk
