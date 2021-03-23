@@ -1,5 +1,6 @@
 from qonduit._backend import *
 
+@qiskit
 @quirk
 @default
 def design(circuit):

@@ -12,7 +12,10 @@ class Circuit(widgets.VBox, traitlets.HasTraits):
         self._circuit = circuit
         self._cv = cv
                     
-        cv.observe(self.update_circuit, names='circuit_qasm')
+        if hasattr(cv, "circuit_qasm"):
+            cv.observe(self.update_circuit, names='circuit_qasm')
+        else:
+            cv.observe(self.update_circuit, names='circuit')
         cv.width = 1000
         cv.height = 200
                 
@@ -42,7 +45,13 @@ class Circuit(widgets.VBox, traitlets.HasTraits):
             self._plot.update()
     
     def update_circuit(self, change):
-        if "OPENQASM" in change['new']:
-            self.circuit_qasm = change['new']
-            self._circuit = self._circuit.from_qasm_str(change['new'])
-            self._plot.kwargs_widgets[0].value = qi.Statevector.from_instruction(self._circuit.to_instruction())
+        updated = change['new']
+        if "OPENQASM" in updated:
+            self.circuit_qasm = updated
+            self._circuit = self._circuit.from_qasm_str(updated)
+        elif hasattr(updated, "qasm"):
+            self.circuit_qasm = updated.qasm()
+            self._circuit = updated
+            
+        self._plot.kwargs_widgets[0].value = qi.Statevector.from_instruction(self._circuit.to_instruction())
+        
